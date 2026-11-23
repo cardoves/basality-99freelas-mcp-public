@@ -1,0 +1,38 @@
+{
+  "name": "basality-99freelas-mcp",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Unofficial read-only MCP server for public 99Freelas pages and unsent proposal previews.",
+  "mcpName": "io.github.cardoves/basality-99freelas-mcp",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cardoves/basality-99freelas-mcp-public.git"
+  },
+  "homepage": "https://github.com/cardoves/basality-99freelas-mcp-public#readme",
+  "bugs": "https://github.com/cardoves/basality-99freelas-mcp-public/issues",
+  "bin": {
+    "basality-99freelas-mcp": "./dist/index.js"
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "start": "node dist/index.js",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "smoke:public": "npm run build && node scripts/smoke-public.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.4.0",
+    "cheerio": "1.2.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "2.4.0",
+    "@types/node": "^24.0.0",
+    "typescript": "~7.0.2"
+  }
+}
